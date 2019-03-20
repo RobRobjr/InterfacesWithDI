@@ -10,11 +10,19 @@ using System.Windows.Forms;
 
 namespace InterfacesWithDI
 {
-    public partial class Form1 : Form
+    public partial class FrmMain : Form
     {
-        public Form1()
+        private ILogger _logger;
+
+        public FrmMain(ILogger logger)
         {
+            _logger = logger;
             InitializeComponent();
+        }
+
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+            _logger.Log("The main form is loading.....");
         }
     }
 }
